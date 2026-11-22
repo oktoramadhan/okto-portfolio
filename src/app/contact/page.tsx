@@ -5,7 +5,7 @@ import { site } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Contact',
-  description: 'Email or DM Okto Ramadhan for brand collaborations, creator collabs and web projects.',
+  description: 'Email or DM Okto Ramadhan to collaborate on a video, a project or a website.',
 };
 
 export default function ContactPage() {

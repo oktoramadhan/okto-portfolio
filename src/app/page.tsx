@@ -26,9 +26,9 @@ const services = [
     media: 'video' as const,
   },
   {
-    name: 'Brand Collaboration',
-    text: 'Helping brands show up in real life, with products used on my rides and in my week, and a plan to reach the people who will care about them.',
-    tags: ['Ride along', 'Shorts package', 'Build and film', 'Long-term partner', 'Reporting'],
+    name: 'Making Things Together',
+    text: 'Teaming up with people who share my interests: riding together, making videos side by side or building something new. Got an idea? Tell me and we’ll figure out how to make it happen.',
+    tags: ['Ride together', 'Joint videos', 'Build and film', 'Shorts', 'Side projects'],
     href: '/collaboration',
     media: 'collab' as const,
   },
@@ -109,7 +109,7 @@ export default async function Home() {
           <p className="mb-6 text-sm font-bold uppercase">Myself</p>
           <WordsReveal
             className="max-w-[24ch] text-[clamp(1.75rem,3.6vw,3.25rem)] font-semibold leading-[1.1] tracking-[-0.035em]"
-            text="Passionate about telling real stories on camera and building useful things in code, I make videos and software with purpose. With a focus on honesty, clean editing and detail, I help brands and people bring their ideas to life, from a first ride to a finished release."
+            text="I’m Okto, a university student and vlogger from Indonesia. I film my life, my rides and the things I love to do, and I build apps and websites whenever I’m not in class. This is my ongoing project: sharing the journey and learning in public, one video and one release at a time."
           />
           <Link href="/collaboration" className="btn mt-10">
             Ask for collaboration
@@ -164,7 +164,7 @@ export default async function Home() {
             <span className="mono pt-2.5 text-dim">Services</span>
             <WordsReveal
               className="max-w-[28ch] text-[clamp(1.5rem,3.4vw,2.75rem)] font-medium leading-[1.12] tracking-[-0.03em]"
-              text="Evolving with every brief and built for impact, my process spans filming, editing, development and brand collaboration, aligning vision with execution to bring clarity and edge to every project."
+              text="Evolving with every brief and built for impact, my process spans filming, editing, development and working with other people, aligning vision with execution to bring clarity and edge to every project."
             />
           </div>
           <ol>

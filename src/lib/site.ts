@@ -10,7 +10,7 @@ export const site = {
   shortName: 'Okto',
   tagline: 'Cycling, life updates and the things I build.',
   description:
-    'Okto Ramadhan is a vlogger and web developer documenting cycling, university life and the projects he builds. Open for brand collaborations and freelance web work.',
+    'Okto Ramadhan is a vlogger and web developer documenting cycling, university life and the projects he builds. Open for collaborations and freelance web work.',
   location: 'Indonesia',
   // Business email used by the "Email me" and "Copy email" buttons.
   email: 'oktorochan10@gmail.com',
