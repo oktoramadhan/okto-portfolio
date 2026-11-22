@@ -29,7 +29,7 @@ export default function Footer() {
               href={t.href}
               target={t.external ? '_blank' : undefined}
               rel={t.external ? 'noopener' : undefined}
-              className={`flex items-end rounded-card bg-tile/70 p-4 text-lg font-semibold no-underline backdrop-blur-2xl transition-colors duration-300 hover:bg-signal hover:text-ink ${t.cls}`}>
+              className={`flex items-end rounded-card bg-tile/35 p-4 text-lg font-semibold no-underline backdrop-blur-[6px] transition-colors duration-300 hover:bg-signal hover:text-ink ${t.cls}`}>
               {t.label}
             </Link>
           ))}
