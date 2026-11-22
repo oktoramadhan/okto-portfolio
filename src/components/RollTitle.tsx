@@ -3,22 +3,19 @@
 import { useRef } from 'react';
 import { gsap, useGSAP, prefersReducedMotion } from '@/lib/motion';
 
-// Giant heading whose letters roll into place like an odometer.
+// Giant heading whose letters roll like an odometer. The roll is tied to your scroll position, not to a timer:
+// it plays as you scroll down to it and plays backwards as you scroll back up, so it can never get stuck.
 export default function RollTitle({ lines, className = '' }: { lines: string[]; className?: string }) {
   const root = useRef<HTMLHeadingElement>(null);
 
   useGSAP(
     () => {
-      if (prefersReducedMotion()) {
-        gsap.set('[data-roll]', { yPercent: -50 });
-        return;
-      }
+      if (prefersReducedMotion()) return; // stays as plain text
       gsap.to('[data-roll]', {
         yPercent: -50,
-        duration: 1.1,
-        ease: 'expo.out',
-        stagger: 0.045,
-        scrollTrigger: { trigger: root.current, start: 'top 80%', once: true },
+        ease: 'none',
+        stagger: 0.08,
+        scrollTrigger: { trigger: root.current, start: 'top 92%', end: 'top 30%', scrub: true },
       });
     },
     { scope: root }
