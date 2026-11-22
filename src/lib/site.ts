@@ -16,8 +16,8 @@ export const site = {
   email: 'oktorochan10@gmail.com',
   availability: 'Open for collaborations and freelance projects',
   replyTime: 'I reply within 2 days',
-  // Opens a direct message with you on Instagram.
-  dm: 'https://ig.me/m/oktoramadhan1',
+  // Where the "DM on Instagram" buttons go: your Instagram profile (visitors tap Message there).
+  dm: 'https://www.instagram.com/oktoramadhan1/',
   socials: {
     youtube: { label: 'YouTube', handle: '@oktoramadhan1', url: 'https://www.youtube.com/@oktoramadhan1' },
     instagram: { label: 'Instagram', handle: '@oktoramadhan1', url: 'https://www.instagram.com/oktoramadhan1' },
