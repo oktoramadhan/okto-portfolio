@@ -1,0 +1,161 @@
+@import "tailwindcss";
+
+/* Design tokens: monochrome with one orange signal */
+@theme {
+  --color-paper: #f1f1ef;
+  --color-ink: #141414;
+  --color-dark: #1b1b1b;
+  --color-dark-2: #262626;
+  --color-tile: #e3e3e0;
+  --color-muted: #8a8a86;
+  --color-line: #d9d9d5;
+  --color-soft: #c9c9c5;
+  --color-dim: #8f8f8c;
+  --color-signal: #ff5b1f;
+
+  --font-sans: var(--font-archivo), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-io: cubic-bezier(0.65, 0, 0.35, 1);
+
+  --text-hero: clamp(3rem, 9vw, 8.5rem);
+  --text-big: clamp(2rem, 4.5vw, 3.75rem);
+  --text-mid: clamp(1.5rem, 2.6vw, 2.25rem);
+
+  --radius-card: 14px;
+}
+
+:root {
+  --gutter: clamp(1rem, 2.2vw, 1.5rem);
+}
+
+@utility px-gutter {
+  padding-inline: var(--gutter);
+}
+
+@utility mx-gutter {
+  margin-inline: var(--gutter);
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-paper text-ink font-sans antialiased;
+    overflow-x: clip;
+  }
+  h1,
+  h2,
+  h3 {
+    @apply font-extrabold leading-none tracking-[-0.03em];
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-signal);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+  /* Lenis smooth scroll */
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+  .lenis:not(.lenis-autoToggle).lenis-stopped {
+    overflow: clip;
+  }
+  .lenis [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+}
+
+@layer components {
+  .display {
+    @apply font-extrabold uppercase leading-[0.82] tracking-[-0.045em] text-hero;
+  }
+  .mono {
+    @apply font-mono text-xs uppercase tracking-[0.02em];
+  }
+  .lede {
+    @apply text-xl leading-snug text-muted max-w-[44ch];
+  }
+  .panel {
+    @apply bg-dark text-white rounded-card mx-gutter;
+  }
+
+  /* Pill buttons */
+  .btn {
+    @apply inline-flex items-center gap-2 rounded-full border-[1.5px] border-ink bg-ink px-[1.35em] py-[0.85em] font-semibold leading-none text-white no-underline transition-colors duration-300 ease-io cursor-pointer;
+  }
+  .btn:hover {
+    @apply border-signal bg-signal text-ink;
+  }
+  .btn-ghost {
+    @apply border-current bg-transparent text-current;
+  }
+  .btn-ghost:hover {
+    @apply border-ink bg-ink text-paper;
+  }
+  .panel .btn,
+  .btn-light {
+    @apply border-white bg-white text-ink;
+  }
+  .panel .btn:hover,
+  .btn-light:hover {
+    @apply border-signal bg-signal text-ink;
+  }
+  .panel .btn-ghost {
+    @apply border-white bg-transparent text-white;
+  }
+  .panel .btn-ghost:hover {
+    @apply bg-white text-ink;
+  }
+
+  .text-link {
+    @apply font-semibold underline decoration-[1.5px] underline-offset-4 hover:text-signal;
+  }
+
+  .chip {
+    @apply rounded-[5px] bg-[#333] px-[0.55rem] py-[0.35rem] font-mono text-xs uppercase text-soft;
+  }
+
+  /* Scrolling ticker (duplicate the content once inside .ticker-track) */
+  .ticker {
+    @apply overflow-hidden whitespace-nowrap;
+    mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  }
+  .ticker-track {
+    display: inline-flex;
+    animation: ticker 22s linear infinite;
+  }
+  .ticker-track > span {
+    padding-right: 0.6em;
+  }
+}
+
+@keyframes ticker {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .ticker-track {
+    animation: none;
+  }
+}
+
+/* Preloader is only shown when the inline head script adds .preload */
+.loader {
+  display: none;
+}
+html.preload .loader {
+  display: flex;
+}
